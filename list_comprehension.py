@@ -1,7 +1,13 @@
 def main():
-    # This program test the usage of list comprehension
-    numbers = [n for n in range(1, 11) if n % 3 == 0]
-    print(numbers)
+    # for the creation of list of tuples
+    colors = ['red', 'orange', 'yellow', 'green', 'blue', 'violet', 'purple']
+    sizes = ['small', 'medium', 'large']
+    T_shirts = [(color,size)
+                for color in colors
+                for size in sizes
+                if 'purple' in colors
+                ]
+    print(T_shirts)
 
 if __name__ == '__main__':
     main()
