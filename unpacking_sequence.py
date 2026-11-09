@@ -1,19 +1,24 @@
-def main():
-    servers = [
-        ("Web-01", "192.168.1.10", "active", (85.5, 16.2)),
-        ("DB-Primary", "192.168.1.50", "active", (92.1, 64.0)),
-        ("Cache-01", "192.168.1.100", "maintenance", (12.0, 4.5)),
-        ("API-Gateway", "192.168.1.25", "active", (45.8, 8.1)),
-        ("Web-02", "192.168.1.11", "inactive", (0.0, 0.0)),
-    ]
+metro_areas = [
+    ('Tokyo', 'JP', 36.933, (35.689722, 139.691667)),
+    ('Delhi NCR', 'IN', 21.935, (28.613889, 77.208889)),
+    ('Mexico City', 'MX', 20.142, (19.433333, -99.133333)),
+    ('New York-Newark', 'US', 20.104, (40.808611, -74.020386)),
+    ('São Paulo', 'BR', 19.649, (-23.547778, -46.635833)),
+]
 
-    # TODO: Write your header print statement here
-    print(f"{"Server":15} | {"CPU %":>8} | {"Memory (GB)":>12}")
-    # TODO: Write your loop with nested unpacking and filters here
-    for server, _, _, (cpu, mem) in servers:
-        if cpu > 40.0:
-            print(f"{server:15} | {cpu:>8.1f} | {mem:12.1f}")
-    # TODO: Print your formatted rows here
+
+def main():
+
+    """
+    Using Match/case to solve this pythonically
+    better than the regular for looping 
+    """
+    print(f'{"":15} | {"Latitude":>9} | {"Longitude":>9}')
+    for record in metro_areas:
+
+        match record:
+            case [name, _ , _, (lat, lon)] :
+                print(f'{name:15} | {lat:9.4f} | {lon:9.4f}')
 
 
 if __name__ == '__main__':
